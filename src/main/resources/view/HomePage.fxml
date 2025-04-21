@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainAnchor" prefHeight="736.0" prefWidth="1365.0" style="-fx-background-color: #d6e0e1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.serenitymentalhealthcenter.controller.HomePageController">
+    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d6e0e1" height="698.0" stroke="#330a27" strokeType="INSIDE" strokeWidth="3.0" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="224.0" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d6e0e1" height="567.0" layoutY="3.0" stroke="#d6e0e1" strokeType="INSIDE" width="24.0" />
+      <Line endX="-56.0" layoutX="100.0" layoutY="1.0" startX="-100.0" stroke="#330a27" strokeWidth="4.0" />
+      <Line endX="-56.0" layoutX="100.0" layoutY="696.0" startX="-100.0" stroke="#330a27" strokeWidth="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d6e0e1" height="188.0" layoutY="507.0" stroke="#d6e0e1" strokeType="INSIDE" width="56.0" />
+      <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="22.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-driver-50.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="31.0" layoutY="18.0" text="THERAPY CENTER">
+         <font>
+            <Font name="Calibri Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="8.0" layoutY="60.0" text="MAIN MENU" textFill="#71b9a2">
+         <font>
+            <Font name="Dubai Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblRegistration" layoutX="8.0" layoutY="96.0" prefHeight="44.0" prefWidth="205.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" textFill="#94838f" />
+      <Label layoutX="25.0" layoutY="155.0" prefHeight="40.0" prefWidth="169.0" style="-fx-background-radius: 30;" />
+      <Label layoutX="25.0" layoutY="192.0" prefHeight="30.0" prefWidth="169.0" style="-fx-background-radius: 30;" />
+      <Label layoutX="25.0" layoutY="229.0" prefHeight="30.0" prefWidth="169.0" style="-fx-background-radius: 30;" />
+      <Label layoutX="25.0" layoutY="266.0" prefHeight="30.0" prefWidth="169.0" style="-fx-background-radius: 30;" />
+      <Label layoutX="25.0" layoutY="303.0" prefHeight="30.0" prefWidth="169.0" style="-fx-background-radius: 30;" />
+      <Label layoutX="25.0" layoutY="340.0" prefHeight="30.0" prefWidth="169.0" style="-fx-background-radius: 30;" />
+      <Label layoutX="25.0" layoutY="377.0" prefHeight="30.0" prefWidth="169.0" style="-fx-background-radius: 30;" />
+      <Label layoutX="27.0" layoutY="414.0" prefHeight="30.0" prefWidth="169.0" style="-fx-background-radius: 30;" />
+      <Label layoutX="8.0" layoutY="555.0" text="SUPPORT" textFill="#71b9a2">
+         <font>
+            <Font name="Dubai Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="598.0" prefHeight="30.0" prefWidth="169.0" style="-fx-background-radius: 30;" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="26.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-dashboard-50.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnRegistration" layoutX="56.0" layoutY="98.0" mnemonicParsing="false" onAction="#registrationOnAction" prefHeight="39.0" prefWidth="112.0" style="-fx-background-color: #ffffff;" text="Registration" textFill="#09463e">
+         <font>
+            <Font name="Dubai Bold" size="16.0" />
+         </font>
+      </Button>
+      <Line endX="1043.0" layoutX="316.0" layoutY="58.0" startX="-86.0" stroke="#330a27" strokeWidth="2.0" />
+      <AnchorPane fx:id="loardAnchor" layoutX="229.0" layoutY="75.0" prefHeight="678.0" prefWidth="1131.0" />
+      <Label fx:id="lblHomePage" layoutX="230.0" layoutY="4.0" text="DASHBOARD">
+         <font>
+            <Font name="Dubai Bold" size="28.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="1305.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/car.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="98.0" fitWidth="112.0" layoutX="1063.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/giphy.gif" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblPatient" layoutX="8.0" layoutY="159.0" prefHeight="44.0" prefWidth="205.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" textFill="#94838f" />
+      <Button fx:id="btnPatient" layoutX="64.0" layoutY="161.0" mnemonicParsing="false" onAction="#patientOnAction" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff;" text="Patient" textFill="#09463e">
+         <font>
+            <Font name="Dubai Bold" size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="26.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-students-50%20(1).png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblProgram" layoutX="8.0" layoutY="222.0" prefHeight="44.0" prefWidth="205.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" textFill="#94838f" />
+      <Button fx:id="btnProgram" layoutX="59.0" layoutY="224.0" mnemonicParsing="false" onAction="#programOnAction" prefHeight="39.0" prefWidth="100.0" style="-fx-background-color: #ffffff;" text="Program" textFill="#09463e">
+         <font>
+            <Font name="Dubai Bold" size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="25.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-trainer-50.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblTherapist" layoutX="8.0" layoutY="285.0" prefHeight="44.0" prefWidth="205.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" textFill="#94838f" />
+      <Button fx:id="btnTherapist" layoutX="64.0" layoutY="287.0" mnemonicParsing="false" onAction="#therapistOnAction" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff;" text="Therapist" textFill="#09463e">
+         <font>
+            <Font name="Dubai Bold" size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="27.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-booking-50.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblBooking" layoutX="8.0" layoutY="349.0" prefHeight="44.0" prefWidth="205.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" textFill="#94838f" />
+      <Button fx:id="btnBooking" layoutX="64.0" layoutY="351.0" mnemonicParsing="false" onAction="#bookingOnAction" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff;" text="Booking" textFill="#09463e">
+         <font>
+            <Font name="Dubai Bold" size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="27.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-payments-48.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblSession" layoutX="8.0" layoutY="412.0" prefHeight="44.0" prefWidth="205.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" textFill="#94838f" />
+      <Button fx:id="btnSession" layoutX="64.0" layoutY="414.0" mnemonicParsing="false" onAction="#sessionOnAction" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff;" text="Session" textFill="#09463e">
+         <font>
+            <Font name="Dubai Bold" size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="27.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-course-assign-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="27.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-classroom-48.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblPayment" layoutX="8.0" layoutY="477.0" prefHeight="44.0" prefWidth="205.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" textFill="#94838f" />
+      <Button fx:id="btnPayment" layoutX="53.0" layoutY="479.0" mnemonicParsing="false" onAction="#paymentOnAction" prefHeight="39.0" prefWidth="112.0" style="-fx-background-color: #ffffff;" text="Payment" textFill="#09463e">
+         <font>
+            <Font name="Dubai Bold" size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="27.0" layoutY="405.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-tools-30%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="26.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-vehicle-50%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="25.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-salary-50.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblSetting" layoutX="8.0" layoutY="578.0" prefHeight="44.0" prefWidth="205.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" textFill="#94838f" />
+      <Button fx:id="btnSetting" layoutX="60.0" layoutY="580.0" mnemonicParsing="false" onAction="#settingOnAction" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff;" text="Setting" textFill="#09463e">
+         <font>
+            <Font name="Dubai Bold" size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="27.0" layoutY="603.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-setting-50.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblLogout" layoutX="8.0" layoutY="645.0" prefHeight="44.0" prefWidth="205.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" textFill="#94838f" />
+      <Button fx:id="btnLogout" layoutX="59.0" layoutY="647.0" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff;" text="Logout" textFill="#09463e">
+         <font>
+            <Font name="Dubai Bold" size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="27.0" layoutY="648.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-log-out-24.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

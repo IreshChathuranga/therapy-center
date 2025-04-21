@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="678.0" prefWidth="1131.0" style="-fx-background-color: #d6e0e1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.serenitymentalhealthcenter.controller.ProgramRegistrationController">
+   <children>
+      <TextField fx:id="txtDate" layoutX="605.0" layoutY="33.0" prefHeight="32.0" prefWidth="490.0" promptText="Enter Name" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtAdvancePayment" layoutX="27.0" layoutY="94.0" prefHeight="32.0" prefWidth="490.0" promptText="Enter Address" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="37.0" layoutY="15.0" text="Registration ID" textFill="#330a27">
+         <font>
+            <Font name="Ebrima Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="618.0" layoutY="15.0" text="Registration Date" textFill="#330a27">
+         <font>
+            <Font name="Ebrima Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="30.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-id-50%20(2).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="614.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-username-50.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="40.0" layoutY="75.0" text="Advance Payment" textFill="#330a27">
+         <font>
+            <Font name="Ebrima Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="31.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-pensioner-30.png" />
+         </image>
+      </ImageView>
+      <Group layoutX="32.0" layoutY="102.0" />
+      <Group layoutX="570.0" layoutY="112.0" />
+      <Group layoutX="14.0" layoutY="130.0">
+         <children>
+            <Group />
+         </children>
+      </Group>
+      <Group layoutX="30.0" layoutY="128.0">
+         <children>
+            <Group layoutX="143.0" layoutY="6.0" />
+            <Group layoutX="502.0" />
+            <Group layoutX="248.0" layoutY="-1.0" />
+         </children>
+      </Group>
+      <Button fx:id="btnSave" layoutX="674.0" layoutY="530.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: #000000; -fx-background-radius: 30;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="Dubai Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnUpdate" layoutX="828.0" layoutY="530.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: #508d8d; -fx-background-radius: 30;" text="Update" textFill="#f5f5f5">
+         <font>
+            <Font name="Dubai Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete" layoutX="979.0" layoutY="530.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: #14f5b5; -fx-background-radius: 30;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Dubai Bold" size="16.0" />
+         </font>
+      </Button>
+      <Group layoutX="376.0" layoutY="312.0" />
+      <TableView fx:id="tblRegistarion" layoutX="32.0" layoutY="299.0" onMouseClicked="#onClickTable" prefHeight="142.0" prefWidth="1066.0" style="-fx-background-color: #09463e;">
+        <columns>
+          <TableColumn fx:id="registrationId" prefWidth="180.0" text="Registration ID" />
+          <TableColumn fx:id="registrationDate" prefWidth="181.0" text="Registration Date" />
+            <TableColumn fx:id="advancePayment" prefWidth="238.0" text="Advance Payment" />
+            <TableColumn fx:id="patientId" minWidth="6.0" prefWidth="240.0" text="Patient ID" />
+            <TableColumn fx:id="programId" minWidth="6.0" prefWidth="226.0" text="Progarm ID" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="34.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-playlist-50.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="618.0" layoutY="76.0" text="Patient ID" textFill="#330a27">
+         <font>
+            <Font name="Ebrima Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="614.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-address-24.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="36.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-id-50%20(2).png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="Patient" arcHeight="5.0" arcWidth="5.0" fill="#74ffd5" height="32.0" layoutX="27.0" layoutY="33.0" stroke="#2d9e9a" strokeType="INSIDE" strokeWidth="2.0" style="-fx-arc-height: 30; -fx-arc-width: 30;" width="490.0" />
+      <Label fx:id="lblRegistration" layoutX="33.0" layoutY="39.0" text="1">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnRefresh" layoutX="34.0" layoutY="530.0" mnemonicParsing="false" onAction="#refreshOnAction" prefHeight="42.0" prefWidth="88.0" style="-fx-background-color: #09463e; -fx-background-radius: 30;" text="Refresh" textFill="WHITE">
+         <font>
+            <Font name="Dubai Bold" size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="893.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/kon-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="913.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/kon-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="cmbPatient" layoutX="605.0" layoutY="95.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-radius: 40; -fx-border-width: 2;" />
+      <Label layoutX="40.0" layoutY="140.0" text="Program ID " textFill="#330a27">
+         <font>
+            <Font name="Ebrima Bold" size="13.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbProgram" layoutX="27.0" layoutY="159.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-radius: 40; -fx-border-width: 2;" />
+   </children>
+</AnchorPane>
