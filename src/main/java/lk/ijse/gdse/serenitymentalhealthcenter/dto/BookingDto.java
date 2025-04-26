@@ -7,14 +7,16 @@ import lk.ijse.gdse.serenitymentalhealthcenter.entity.TherapyProgram;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.sql.Date;
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class TherapySessionDto {
+public class BookingDto {
     private String id;
 
     private String patientId;
@@ -28,5 +30,7 @@ public class TherapySessionDto {
     private BigDecimal payment;
     private BigDecimal totalRemainingAmount;
     private String paymentId;
+//    private List<Payment> paymentDTOS;
+
 
 }

@@ -2,10 +2,8 @@ package lk.ijse.gdse.serenitymentalhealthcenter.bo.custom.impl;
 
 import lk.ijse.gdse.serenitymentalhealthcenter.bo.custom.SignInBO;
 import lk.ijse.gdse.serenitymentalhealthcenter.dao.DAOFactory;
-import lk.ijse.gdse.serenitymentalhealthcenter.dao.custom.PatientDAO;
 import lk.ijse.gdse.serenitymentalhealthcenter.dao.custom.SignInDAO;
 import lk.ijse.gdse.serenitymentalhealthcenter.dto.UserDto;
-import lk.ijse.gdse.serenitymentalhealthcenter.entity.Patient;
 import lk.ijse.gdse.serenitymentalhealthcenter.entity.User;
 
 import java.sql.SQLException;

@@ -8,7 +8,7 @@ import lk.ijse.gdse.serenitymentalhealthcenter.entity.TherapyProgram;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Date;
 
 @Getter
 @Setter
@@ -18,16 +18,14 @@ import java.util.Date;
 public class TherapySessionTM {
     private String id;
 
-    private Patient patientId;
+    private String patientId;
     private String phoneNumber;
     private String sessionDuration;
     private Date sessionDate;
     private Date placeDate;
-    private Therapist therapistId;
-
-    private TherapyProgram programId;
+    private String therapistId;
+    private String programId;
     private BigDecimal payment;
     private BigDecimal totalRemainingAmount;
-    private boolean paymentStatus;
-    private Payment paymentId;
+    private String paymentId;
 }

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
 @Data
 @Entity
@@ -33,9 +33,6 @@ public class ProgramRegistration {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "program_id" ,nullable = false)
     private TherapyProgram programId;
-
-    @OneToOne(mappedBy = "programRegistrationId", cascade = CascadeType.ALL)
-    private Payment payment;
 
     public ProgramRegistration(String programRegistrationId, Date date, BigDecimal advancePayment, Patient patient, TherapyProgram therapyProgram) {
         this.programRegistrationId = programRegistrationId;

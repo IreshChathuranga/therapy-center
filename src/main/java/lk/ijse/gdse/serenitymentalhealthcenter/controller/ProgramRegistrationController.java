@@ -54,7 +54,7 @@ public class ProgramRegistrationController implements Initializable {
     public void saveOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String registrationId = lblRegistration.getText();
         if (registrationId == null || registrationId.isEmpty()) {
-            registrationId = programRegistrationBO.getNextRegistrationId(); // fallback
+            registrationId = programRegistrationBO.getNextRegistrationId();
         }
 
         Date date = Date.valueOf(txtDate.getText());

@@ -19,9 +19,9 @@ public class CartTM {
     private String paymentId;
     private BigDecimal totalRemainingAmount;
     private BigDecimal payment;
-    private boolean paymentStatus;
     private String therapistId;
     private String therapyId;
     private String patientId;
+    private String phoneNumber;
     private Button removeBtn;
 }

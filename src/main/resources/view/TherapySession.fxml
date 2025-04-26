@@ -10,17 +10,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="678.0" prefWidth="1131.0" style="-fx-background-color: #d6e0e1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.serenitymentalhealthcenter.controller.TherapySessionController">
    <children>
-      <TextField fx:id="txtPlaceDate" layoutX="605.0" layoutY="33.0" prefHeight="32.0" prefWidth="490.0" promptText="Enter Date" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
+      <TextField fx:id="txtPlaceDate" layoutX="605.0" layoutY="33.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtDuration" layoutX="27.0" layoutY="94.0" prefHeight="32.0" prefWidth="490.0" promptText="Enter Duration" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
+      <TextField fx:id="txtDuration" layoutX="27.0" layoutY="94.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -69,29 +68,30 @@
             <Group layoutX="248.0" layoutY="-1.0" />
          </children>
       </Group>
-      <Button fx:id="btnUpdate" layoutX="829.0" layoutY="514.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: #000000; -fx-background-radius: 30;" text="Update" textFill="WHITE">
+      <Button fx:id="btnUpdate" layoutX="829.0" layoutY="573.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: #000000; -fx-background-radius: 30;" text="Update" textFill="WHITE">
          <font>
             <Font name="Dubai Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete" layoutX="979.0" layoutY="514.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: #14f5b5; -fx-background-radius: 30;" text="Delete" textFill="WHITE">
+      <Button fx:id="btnDelete" layoutX="979.0" layoutY="573.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: #14f5b5; -fx-background-radius: 30;" text="Delete" textFill="WHITE">
          <font>
             <Font name="Dubai Bold" size="16.0" />
          </font>
       </Button>
       <Group layoutX="376.0" layoutY="312.0" />
-      <TableView fx:id="tblSession" layoutX="32.0" layoutY="355.0" onMouseClicked="#onClickTable" prefHeight="126.0" prefWidth="1066.0" style="-fx-background-color: #09463e;">
+      <TableView fx:id="tblSession" layoutX="32.0" layoutY="425.0" onMouseClicked="#onClickTable" prefHeight="126.0" prefWidth="1066.0" style="-fx-background-color: #09463e;">
         <columns>
-          <TableColumn fx:id="sessionId" prefWidth="102.0" text="Session ID" />
-          <TableColumn fx:id="placeDate" prefWidth="117.0" text="Place Date" />
-            <TableColumn fx:id="sessionDuration" prefWidth="110.0" text="Session Duration" />
-            <TableColumn fx:id="payment" minWidth="6.0" prefWidth="106.0" text="Payment" />
-            <TableColumn fx:id="remaingTotalAmount" minWidth="6.0" prefWidth="145.0" text="Remaing Total Amount" />
-            <TableColumn fx:id="sessionDate" prefWidth="109.0" text="Session Date" />
-            <TableColumn fx:id="paymentStatus" prefWidth="99.0" text="Payment Status" />
-            <TableColumn fx:id="theraphistId" prefWidth="94.0" text="Theraphist Id" />
-            <TableColumn fx:id="therapyId" prefWidth="100.0" text="Therapy Id" />
-            <TableColumn fx:id="patientId" prefWidth="83.0" text="Patient Id" />
+          <TableColumn fx:id="sessionId" text="Session ID" />
+          <TableColumn fx:id="patientId" prefWidth="94.0" text="Patient ID" />
+            <TableColumn fx:id="phoneNumber" prefWidth="114.0" text="Phone Number" />
+            <TableColumn fx:id="sessionDuration" minWidth="6.0" prefWidth="114.0" text="Session Duration" />
+            <TableColumn fx:id="sessionDate" prefWidth="103.0" text="Session Date" />
+            <TableColumn fx:id="placeDate" prefWidth="114.0" text="Place Date" />
+            <TableColumn fx:id="theraphistId" prefWidth="118.0" text="Theraphist Id" />
+            <TableColumn fx:id="therapyId" prefWidth="104.0" text="Therapy Id" />
+            <TableColumn fx:id="payment" prefWidth="90.0" text="Payment" />
+            <TableColumn fx:id="totalAmount" prefWidth="91.0" text="Amount" />
+            <TableColumn fx:id="paymentId" prefWidth="75.0" text="Payment ID" />
         </columns>
       </TableView>
       <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="34.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
@@ -99,7 +99,7 @@
             <Image url="@../icons/icons8-playlist-50.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtPayment" layoutX="605.0" layoutY="94.0" prefHeight="32.0" prefWidth="490.0" promptText="Enter Payment" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
+      <TextField fx:id="txtPayment" layoutX="605.0" layoutY="94.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -109,7 +109,7 @@
             <Font name="Ebrima Bold" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="txtAmount" layoutX="27.0" layoutY="157.0" prefHeight="32.0" prefWidth="490.0" promptText="Enter Amount" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
+      <TextField fx:id="txtAmount" layoutX="27.0" layoutY="157.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -124,12 +124,6 @@
             <Image url="@../icons/icons8-id-50%20(2).png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="Session" arcHeight="5.0" arcWidth="5.0" fill="#74ffd5" height="32.0" layoutX="27.0" layoutY="33.0" stroke="#2d9e9a" strokeType="INSIDE" strokeWidth="2.0" style="-fx-arc-height: 30; -fx-arc-width: 30;" width="490.0" />
-      <Label fx:id="lblSessionId" layoutX="33.0" layoutY="39.0" text="1">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
       <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="893.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/kon-removebg-preview.png" />
@@ -158,7 +152,7 @@
       <ComboBox fx:id="cmbTherapyId" layoutX="605.0" layoutY="224.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-radius: 40; -fx-border-width: 2;" />
       <ComboBox fx:id="cmbPatientId" layoutX="605.0" layoutY="286.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-radius: 40; -fx-border-width: 2;" />
       <ComboBox fx:id="cmbTheraphistId" layoutX="27.0" layoutY="285.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-radius: 40; -fx-border-width: 2;" />
-      <TextField fx:id="txtDate" layoutX="605.0" layoutY="158.0" prefHeight="32.0" prefWidth="490.0" promptText="Enter Date" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
+      <TextField fx:id="txtDate" layoutX="605.0" layoutY="158.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -168,20 +162,31 @@
             <Font name="Ebrima Bold" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="txtStatus" layoutX="27.0" layoutY="220.0" prefHeight="32.0" prefWidth="490.0" promptText="Enter Status" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </TextField>
-      <Label layoutX="41.0" layoutY="203.0" text="Payment Status" textFill="#330a27">
-         <font>
-            <Font name="Ebrima Bold" size="13.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnRefresh" layoutX="39.0" layoutY="514.0" mnemonicParsing="false" onAction="#refreshOnAction" prefHeight="42.0" prefWidth="88.0" style="-fx-background-color: #09463e; -fx-background-radius: 30;" text="Refresh" textFill="WHITE">
+      <Button fx:id="btnRefresh" layoutX="39.0" layoutY="573.0" mnemonicParsing="false" onAction="#refreshOnAction" prefHeight="42.0" prefWidth="88.0" style="-fx-background-color: #09463e; -fx-background-radius: 30;" text="Refresh" textFill="WHITE">
          <font>
             <Font name="Dubai Bold" size="16.0" />
          </font>
       </Button>
+      <TextField fx:id="txtSessionId" layoutX="27.0" layoutY="33.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtPhoneNumber" layoutX="27.0" layoutY="349.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-width: 2; -fx-border-radius: 40;">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="40.0" layoutY="330.0" text="Phone Number" textFill="#330a27">
+         <font>
+            <Font name="Ebrima Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="206.0" text="Patient ID" textFill="#330a27">
+         <font>
+            <Font name="Ebrima Bold" size="13.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbPaymentId" layoutX="27.0" layoutY="223.0" prefHeight="32.0" prefWidth="490.0" style="-fx-background-color: #74ffd5; -fx-background-radius: 40; -fx-border-color: #2d9e9a; -fx-border-radius: 40; -fx-border-width: 2;" />
    </children>
 </AnchorPane>

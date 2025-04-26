@@ -2,11 +2,8 @@ package lk.ijse.gdse.serenitymentalhealthcenter.bo.custom.impl;
 
 import lk.ijse.gdse.serenitymentalhealthcenter.bo.custom.TherapistBO;
 import lk.ijse.gdse.serenitymentalhealthcenter.dao.DAOFactory;
-import lk.ijse.gdse.serenitymentalhealthcenter.dao.custom.PatientDAO;
 import lk.ijse.gdse.serenitymentalhealthcenter.dao.custom.TherapistDAO;
-import lk.ijse.gdse.serenitymentalhealthcenter.dto.PatientDto;
 import lk.ijse.gdse.serenitymentalhealthcenter.dto.TherapistDto;
-import lk.ijse.gdse.serenitymentalhealthcenter.entity.Patient;
 import lk.ijse.gdse.serenitymentalhealthcenter.entity.Therapist;
 
 import java.sql.SQLException;
@@ -17,7 +14,14 @@ public class TherapistBOImpl implements TherapistBO {
     TherapistDAO therapistDAO = (TherapistDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.THERAPIST);
     @Override
     public String getNextTherapistId() throws SQLException, ClassNotFoundException {
-        return therapistDAO.getNextId();
+        String lastId = therapistDAO.getNextId();
+
+        if (lastId != null) {
+            int newId = Integer.parseInt(lastId.substring(1)) + 1;
+            return String.format("T%03d", newId);
+        } else {
+            return "T001";
+        }
     }
 
     @Override
@@ -71,14 +75,8 @@ public class TherapistBOImpl implements TherapistBO {
     public List<String> getAllTherapistIds() throws SQLException, ClassNotFoundException {
         return therapistDAO.getAllTherapistIds();
     }
-///
     @Override
     public Therapist findById(String selectedTherapistId) throws SQLException, ClassNotFoundException {
         return therapistDAO.findByIdfortherapist(selectedTherapistId);
     }
-
-//    @Override
-//    public Therapist findTherapistById(String therapistId) throws SQLException, ClassNotFoundException {
-//        return therapistDAO.findById(therapistId);
-//    }
 }

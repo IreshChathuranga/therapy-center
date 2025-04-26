@@ -95,7 +95,7 @@ public class TherapyProgramController implements Initializable {
     public void saveOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String therapyId = lblTherapyId.getText();
         if (therapyId == null || therapyId.isEmpty()) {
-            therapyId = therapyProgramBO.getNextTherapyId(); // fallback
+            therapyId = therapyProgramBO.getNextTherapyId();
         }
 
         String therapyName = txtName.getText();

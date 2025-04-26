@@ -74,9 +74,9 @@ public class PatientController implements Initializable {
     }
 
     public void saveOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String patientId = lblPatient.getText(); // this should already contain next ID
+        String patientId = lblPatient.getText();
         if (patientId == null || patientId.isEmpty()) {
-            patientId = patientBO.getNextPatientId(); // fallback
+            patientId = patientBO.getNextPatientId();
         }
 
         String patientName = txtName.getText();
@@ -98,7 +98,7 @@ public class PatientController implements Initializable {
 
         boolean isSaved = patientBO.savePatient(patientDto);
         if (isSaved) {
-            loadNextPatientId(); // refresh lblPatient with next ID
+            loadNextPatientId();
             txtName.clear();
             txtAddress.clear();
             txtGender.clear();
@@ -199,35 +199,6 @@ public class PatientController implements Initializable {
         }
         tblPatient.setItems(patientTMS);
     }
-//        try {
-//            List<PatientDto> patientDtos = patientBO.getAllPatient();
-//
-//            // Safeguard against null
-//            if (patientDtos == null) {
-//                patientDtos = new ArrayList<>();
-//            }
-//
-//            ObservableList<PatientTM> obList = FXCollections.observableArrayList();
-//
-//            for (PatientDto dto : patientDtos) {
-//                obList.add(new PatientTM(
-//                        dto.getId(),
-//                        dto.getName(),
-//                        dto.getAddress(),
-//                        dto.getGender(),
-//                        dto.getPhoneNumber(),
-//                        dto.getYearOfBirth(),
-//                        dto.getRegistrationDate()
-//                ));
-//            }
-//
-//            tblPatient.setItems(obList);
-//
-//        } catch (SQLException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//            new Alert(Alert.AlertType.ERROR, "Failed to load patient data!").show();
-//        }
-//    }
     private void refreshPage() throws SQLException, ClassNotFoundException {
         loadNextPatientId();
         loadTableData();

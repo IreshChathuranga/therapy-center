@@ -3,7 +3,9 @@ package lk.ijse.gdse.serenitymentalhealthcenter.dao.custom.impl;
 import lk.ijse.gdse.serenitymentalhealthcenter.config.FactoryConfiguration;
 import lk.ijse.gdse.serenitymentalhealthcenter.dao.custom.SessionBookingDAO;
 import lk.ijse.gdse.serenitymentalhealthcenter.entity.Booking;
+import lk.ijse.gdse.serenitymentalhealthcenter.entity.Therapist;
 import lk.ijse.gdse.serenitymentalhealthcenter.entity.TherapySession;
+import lk.ijse.gdse.serenitymentalhealthcenter.exception.DuplicateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -12,13 +14,13 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class SessionBookingDAOImpl implements SessionBookingDAO {
+    private Session session;
 
     @Override
     public String getNextId() throws SQLException, ClassNotFoundException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            // HQL query to get the last inserted patient ID (ordered descending)
             Query<String> query = session.createQuery("SELECT s.id FROM TherapySession s ORDER BY s.id DESC", String.class);
             query.setMaxResults(1);
             String lastId = query.uniqueResult();
@@ -47,7 +49,26 @@ public class SessionBookingDAOImpl implements SessionBookingDAO {
 
     @Override
     public boolean save(TherapySession entity) throws SQLException, ClassNotFoundException {
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            if (entity.getId() != null) {
+                TherapySession therapySession = session.get(TherapySession.class, entity.getId());
+                if (therapySession != null) {
+                    throw new DuplicateException("TherapySession already exists");
+                }
+            }
+
+            session.persist(entity);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -58,5 +79,21 @@ public class SessionBookingDAOImpl implements SessionBookingDAO {
     @Override
     public boolean update(TherapySession entity) throws SQLException, ClassNotFoundException {
         return false;
+    }
+
+    @Override
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+    @Override
+    public boolean saveWithSession(Session session, TherapySession therapySession) {
+        try{
+            session.merge(therapySession);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }

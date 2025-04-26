@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.shape.Rectangle;
 import lk.ijse.gdse.serenitymentalhealthcenter.bo.BOFactory;
 import lk.ijse.gdse.serenitymentalhealthcenter.bo.custom.*;
+import lk.ijse.gdse.serenitymentalhealthcenter.dto.BookingDto;
 import lk.ijse.gdse.serenitymentalhealthcenter.dto.PatientDto;
 import lk.ijse.gdse.serenitymentalhealthcenter.dto.TherapyProgramDto;
 import lk.ijse.gdse.serenitymentalhealthcenter.dto.TherapySessionDto;
@@ -40,7 +41,6 @@ public class SessionBookingController implements Initializable {
     public TableColumn<CartTM , String> paymentId;
     public TableColumn<CartTM , BigDecimal> remaingTotalAmount;
     public TableColumn<CartTM , BigDecimal> payment;
-    public TableColumn<CartTM , Boolean> paymentStatus;
     public TableColumn<CartTM , String> theraphistId;
     public TableColumn<CartTM , String> therapyId;
     public TableColumn<CartTM , String> patientId;
@@ -62,6 +62,8 @@ public class SessionBookingController implements Initializable {
     public Button btnRefresh;
 
     private final ObservableList<CartTM> cartTMS = FXCollections.observableArrayList();
+    public TextField txtPhone;
+    public TableColumn phoneNumber;
     PaymentBO paymentBO = (PaymentBO) BOFactory.getInstance().getBO(BOFactory.BOType.PAYMENT);
 
     PatientBO patientBO = (PatientBO) BOFactory.getInstance().getBO(BOFactory.BOType.PATIENT);
@@ -85,10 +87,10 @@ public class SessionBookingController implements Initializable {
         paymentId.setCellValueFactory(new PropertyValueFactory<>("paymentId"));
         remaingTotalAmount.setCellValueFactory(new PropertyValueFactory<>("totalRemainingAmount"));
         payment.setCellValueFactory(new PropertyValueFactory<>("payment"));
-        paymentStatus.setCellValueFactory(new PropertyValueFactory<>("paymentStatus"));
         theraphistId.setCellValueFactory(new PropertyValueFactory<>("therapistId"));
         therapyId.setCellValueFactory(new PropertyValueFactory<>("therapyId"));
         patientId.setCellValueFactory(new PropertyValueFactory<>("patientId"));
+        phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         action.setCellValueFactory(new PropertyValueFactory<>("removeBtn"));
 
         tblBookingSession.setItems(cartTMS);
@@ -102,8 +104,8 @@ public class SessionBookingController implements Initializable {
         String paymentId = lblPaymentId.getText();
         BigDecimal amount = new BigDecimal(txtAmount.getText());
         BigDecimal payment = new BigDecimal(txtPayment.getText());
-        Boolean status = Boolean.valueOf(txtStatus.getText());
         String therapistId = cmbTheraphistId.getValue();
+        String phone = txtPhone.getText();
 
         if (therapistId == null) {
             new Alert(Alert.AlertType.ERROR, "Please select therapist..!").show();
@@ -128,10 +130,10 @@ public class SessionBookingController implements Initializable {
                 paymentId,
                 amount,
                 payment,
-                status,
                 therapistId,
                 therapyId,
                 patientId,
+                phone,
                 btn
         );
         btn.setOnAction(actionEvent -> {
@@ -155,42 +157,49 @@ public class SessionBookingController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Please select patient for place booking..!").show();
         }
         String sessionId = lblSessionId.getText();
+        if (sessionId == null || sessionId.isEmpty()) {
+            sessionId = sessionBookingBO.getNextSessionId();
+            lblSessionId.setText(sessionId);
+        }
         Date placeDate = Date.valueOf(txtPlaceDate.getText());
         String duration = txtDuration.getText();
         Date sessionDate = Date.valueOf(txtDate.getText());
         String paymentId = lblPaymentId.getText();
+        if (paymentId == null || paymentId.isEmpty()) {
+            paymentId = paymentBO.getNextPaymentId();
+            lblPaymentId.setText(paymentId);
+        }
         BigDecimal amount = new BigDecimal(txtAmount.getText());
         BigDecimal payment = new BigDecimal(txtPayment.getText());
-        Boolean status = Boolean.valueOf(txtStatus.getText());
         String therapistId = cmbTheraphistId.getValue();
         String therapyId = cmbTherapyId.getValue();
         String patientId = cmbPatientId.getValue();
+        String phone = txtPhone.getText();
 
-        List<Payment> paymentDTOS = new ArrayList<>();
+//        List<Payment> paymentDTOS = new ArrayList<>();
 
 //        for (CartTM cartTM : cartTMS) {
-            Payment paymentDTO = new Payment(
-                    paymentId,
-                    amount,
-                    sessionDate,
-                    sessionId
-            );
-            paymentDTOS.add(paymentDTO);
+//            Payment paymentDTO = new Payment(
+//                    paymentId,
+//                    amount,
+//                    sessionDate,
+//                    sessionId
+//            );
 //        }
-        TherapySessionDto therapySessionDto = new TherapySessionDto(
+        BookingDto bookingDto = new BookingDto(
                 sessionId,
-                placeDate,
+                patientId,
+                phone,
                 duration,
+                sessionDate,
+                placeDate,
+                therapistId,
+                therapyId,
                 payment,
                 amount,
-                sessionDate,
-                status,
-                paymentId,
-                therapyId,
-                therapistId,
-                patientId
+                paymentId
         );
-        boolean isSaved = sessionBookingBO.savePlaceBooking(therapySessionDto);
+        boolean isSaved = sessionBookingBO.savePlaceBooking(bookingDto);
         if (isSaved) {
             new Alert(Alert.AlertType.INFORMATION, "Booking saved..!").show();
             refreshPage();
@@ -259,10 +268,10 @@ public class SessionBookingController implements Initializable {
         txtDate.setText("");
         txtAmount.setText("");
         txtPayment.setText("");
-        txtStatus.setText("");
         cmbTheraphistId.getSelectionModel().clearSelection();
         cmbTherapyId.getSelectionModel().clearSelection();
         cmbPatientId.getSelectionModel().clearSelection();
+        txtPhone.setText("");
         lblTheraphistName.setText("");
         lblTherapyName.setText("");
         lblPatientName.setText("");

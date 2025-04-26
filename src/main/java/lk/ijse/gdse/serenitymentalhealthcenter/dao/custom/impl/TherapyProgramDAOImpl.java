@@ -20,7 +20,6 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            // HQL query to get the last inserted patient ID (ordered descending)
             Query<String> query = session.createQuery("SELECT p.id FROM TherapyProgram p ORDER BY p.id DESC", String.class);
             query.setMaxResults(1);
             String lastId = query.uniqueResult();
@@ -61,7 +60,6 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            // Only check for duplicate if the ID is not null
             if (entity.getId() != null) {
                 TherapyProgram therapyProgram = session.get(TherapyProgram.class, entity.getId());
                 if (therapyProgram != null) {

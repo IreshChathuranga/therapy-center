@@ -6,10 +6,8 @@ import lk.ijse.gdse.serenitymentalhealthcenter.dao.custom.PatientDAO;
 import lk.ijse.gdse.serenitymentalhealthcenter.dao.custom.ProgramRegistrationDAO;
 import lk.ijse.gdse.serenitymentalhealthcenter.dao.custom.TherapyProgramDAO;
 import lk.ijse.gdse.serenitymentalhealthcenter.dto.ProgramRegistrationDto;
-import lk.ijse.gdse.serenitymentalhealthcenter.dto.TherapyProgramDto;
 import lk.ijse.gdse.serenitymentalhealthcenter.entity.Patient;
 import lk.ijse.gdse.serenitymentalhealthcenter.entity.ProgramRegistration;
-import lk.ijse.gdse.serenitymentalhealthcenter.entity.Therapist;
 import lk.ijse.gdse.serenitymentalhealthcenter.entity.TherapyProgram;
 
 import java.sql.SQLException;

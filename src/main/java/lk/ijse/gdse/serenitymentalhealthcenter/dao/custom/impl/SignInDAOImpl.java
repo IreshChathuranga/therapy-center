@@ -33,7 +33,6 @@ public class SignInDAOImpl implements SignInDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            // Only check for duplicate if the ID is not null
             if (entity.getUserName() != null) {
                 User user = session.get(User.class, entity.getUserName());
                 if (user != null) {

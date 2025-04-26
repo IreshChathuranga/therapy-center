@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 import lk.ijse.gdse.serenitymentalhealthcenter.bo.BOFactory;
 import lk.ijse.gdse.serenitymentalhealthcenter.bo.custom.LoginBO;
 import lk.ijse.gdse.serenitymentalhealthcenter.bo.custom.SignInBO;
-import lk.ijse.gdse.serenitymentalhealthcenter.bo.custom.TherapyProgramBO;
 import lk.ijse.gdse.serenitymentalhealthcenter.dto.UserDto;
 
 import java.io.IOException;
@@ -79,7 +78,7 @@ public class LoginController implements Initializable {
                     }
 
                     if (userDto.getPassword().equals(password)) {
-                        navigateToTheDashboard();
+                        navigateToTheDashboard(userDto.getRole());
                         return;
                     } else {
                         new Alert(Alert.AlertType.ERROR, "Password is incorrect!").show();
@@ -97,8 +96,28 @@ public class LoginController implements Initializable {
             txtPassword.clear();
         }
     }
-    private void navigateToTheDashboard() throws IOException {
-        navigateTo("/view/HomePage.fxml");    }
+    private void navigateToTheDashboard(String role) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomePage.fxml"));
+        Parent root = loader.load();
+
+        HomePageController homePageController = loader.getController();
+        homePageController.setRole(role);
+
+        Stage stage = (Stage) mainAnchor.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+
+        if ("admin".equalsIgnoreCase(role) || "receptionist".equalsIgnoreCase(role)) {
+            stage.setWidth(DEFAULT_WIDTH);
+            stage.setHeight(DEFAULT_HEIGHT);
+
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            stage.setX((screenBounds.getWidth() - DEFAULT_WIDTH) / 2);
+            stage.setY((screenBounds.getHeight() - DEFAULT_HEIGHT) / 2);
+        }
+
+        stage.show();
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {

@@ -43,6 +43,55 @@ public class HomePageController implements Initializable {
     public Button btnSetting;
     public Label lblLogout;
     public Button btnLogout;
+    private String userRole;
+
+    public void setRole(String role) {
+        this.userRole = role;
+        adjustUIForRole();
+    }
+
+    private void adjustUIForRole() {
+        if ("admin".equalsIgnoreCase(userRole)) {
+            btnTherapist.setDisable(false);
+            btnProgram.setDisable(false);
+            btnSetting.setDisable(false);
+            btnLogout.setDisable(false);
+
+            btnRegistration.setDisable(true);
+            btnPatient.setDisable(true);
+            btnBooking.setDisable(true);
+            btnSession.setDisable(true);
+            btnPayment.setDisable(true);
+
+            try {
+                navigateTo("/view/Therapist.fxml");
+                lblHomePage.setText("MANAGE THERAPIST");
+                applyButtonStyles(lblTherapist, btnTherapist);
+            } catch (IOException e) {
+                new Alert(Alert.AlertType.ERROR, "Failed to load page").show();
+            }
+
+        } else if ("receptionist".equalsIgnoreCase(userRole)) {
+            btnRegistration.setDisable(false);
+            btnPatient.setDisable(false);
+            btnBooking.setDisable(false);
+            btnSession.setDisable(false);
+            btnPayment.setDisable(false);
+            btnSetting.setDisable(false);
+            btnLogout.setDisable(false);
+
+            btnTherapist.setDisable(true);
+            btnProgram.setDisable(true);
+
+            try {
+                navigateTo("/view/Patient.fxml");
+                lblHomePage.setText("MANAGE PATIENT");
+                applyButtonStyles(lblPatient, btnPatient);
+            } catch (IOException e) {
+                new Alert(Alert.AlertType.ERROR, "Failed to load page").show();
+            }
+        }
+    }
 
     public void registrationOnAction(ActionEvent actionEvent) throws IOException {
         applyButtonStyles(lblRegistration,btnRegistration);
@@ -127,11 +176,11 @@ public class HomePageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            navigateTo("/view/Patient.fxml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            navigateTo("/view/Patient.fxml");
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
     }
     public void navigateToLogin(String fxmlpath) throws IOException {
         try {

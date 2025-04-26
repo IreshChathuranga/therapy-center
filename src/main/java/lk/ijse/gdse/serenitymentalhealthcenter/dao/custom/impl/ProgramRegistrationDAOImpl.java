@@ -18,7 +18,6 @@ public class ProgramRegistrationDAOImpl implements ProgramRegistrationDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            // HQL query to get the last inserted patient ID (ordered descending)
             Query<String> query = session.createQuery("SELECT p.id FROM ProgramRegistration p ORDER BY p.id DESC", String.class);
             query.setMaxResults(1);
             String lastId = query.uniqueResult();
@@ -27,7 +26,7 @@ public class ProgramRegistrationDAOImpl implements ProgramRegistrationDAO {
             session.close();
 
             if (lastId != null) {
-                int lastNum = Integer.parseInt(lastId.replace("PR1", ""));
+                int lastNum = Integer.parseInt(lastId.replace("PR", ""));
                 int nextNum = lastNum + 1;
                 return String.format("PR%03d", nextNum);
             } else {
@@ -59,7 +58,6 @@ public class ProgramRegistrationDAOImpl implements ProgramRegistrationDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            // Only check for duplicate if the ID is not null
             if (entity.getProgramRegistrationId() != null) {
                 ProgramRegistration programRegistration = session.get(ProgramRegistration.class, entity.getProgramRegistrationId());
                 if (programRegistration != null) {

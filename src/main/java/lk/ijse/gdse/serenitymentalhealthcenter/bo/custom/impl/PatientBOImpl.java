@@ -9,13 +9,19 @@ import lk.ijse.gdse.serenitymentalhealthcenter.entity.Patient;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
 
 public class PatientBOImpl implements PatientBO {
     PatientDAO patientDAO = (PatientDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.PATIENT);
     @Override
     public String getNextPatientId() throws SQLException, ClassNotFoundException {
-        return patientDAO.getNextId();
+        String lastId = patientDAO.getNextId();
+
+        if (lastId != null) {
+            int newId = Integer.parseInt(lastId.substring(1)) + 1;
+            return String.format("P%03d", newId);
+        } else {
+            return "P001";
+        }
     }
 
     @Override

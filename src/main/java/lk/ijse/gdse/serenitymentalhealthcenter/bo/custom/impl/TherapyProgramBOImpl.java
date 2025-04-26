@@ -1,15 +1,12 @@
 package lk.ijse.gdse.serenitymentalhealthcenter.bo.custom.impl;
 
 import lk.ijse.gdse.serenitymentalhealthcenter.bo.custom.TherapyProgramBO;
-import lk.ijse.gdse.serenitymentalhealthcenter.config.FactoryConfiguration;
 import lk.ijse.gdse.serenitymentalhealthcenter.dao.DAOFactory;
 import lk.ijse.gdse.serenitymentalhealthcenter.dao.custom.TherapistDAO;
 import lk.ijse.gdse.serenitymentalhealthcenter.dao.custom.TherapyProgramDAO;
-import lk.ijse.gdse.serenitymentalhealthcenter.dto.TherapistDto;
 import lk.ijse.gdse.serenitymentalhealthcenter.dto.TherapyProgramDto;
 import lk.ijse.gdse.serenitymentalhealthcenter.entity.Therapist;
 import lk.ijse.gdse.serenitymentalhealthcenter.entity.TherapyProgram;
-import org.hibernate.Session;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

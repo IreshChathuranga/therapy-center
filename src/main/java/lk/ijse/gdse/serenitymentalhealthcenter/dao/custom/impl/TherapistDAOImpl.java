@@ -15,28 +15,17 @@ public class TherapistDAOImpl implements TherapistDAO {
     @Override
     public String getNextId() throws SQLException, ClassNotFoundException {
         Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
+        String lastId = null;
+
         try {
-            // HQL query to get the last inserted patient ID (ordered descending)
-            Query<String> query = session.createQuery("SELECT t.id FROM Therapist t ORDER BY t.id DESC", String.class);
-            query.setMaxResults(1);
-            String lastId = query.uniqueResult();
-
-            transaction.commit();
+            lastId = session
+                    .createQuery("SELECT t.id FROM Therapist t ORDER BY t.id DESC", String.class)
+                    .setMaxResults(1)
+                    .uniqueResult();
+        } finally {
             session.close();
-
-            if (lastId != null) {
-                int lastNum = Integer.parseInt(lastId.replace("T", ""));
-                int nextNum = lastNum + 1;
-                return String.format("T%03d", nextNum);
-            } else {
-                return "T001";
-            }
-        } catch (Exception e) {
-            transaction.rollback();
-            session.close();
-            throw new RuntimeException("no therapist ID", e);
         }
+        return lastId;
     }
 
     @Override
@@ -134,7 +123,7 @@ public class TherapistDAOImpl implements TherapistDAO {
             session.close();
         }
     }
-//
+
     @Override
     public Therapist findById(String id) throws SQLException, ClassNotFoundException {
         Session session = FactoryConfiguration.getInstance().getSession();

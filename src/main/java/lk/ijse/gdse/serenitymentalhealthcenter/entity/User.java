@@ -34,9 +34,4 @@ public class User {
         this.userName = userName;
         this.password = password;
     }
-//    public User(String userName, String password, String role) {
-//        this.userName = userName;
-//        this.password = password;
-//        this.role = role;
-//    }
 }
